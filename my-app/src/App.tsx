@@ -10,8 +10,8 @@ const getRandomPos = () => ({
 });
 
 const getRandomDirection = () => ({
-  x: Math.random() * 0.25 - 0.05, 
-  y: Math.random() * 0.25 - 0.05, 
+  x: Math.random() * 0.10 - 0.01, 
+  y: Math.random() * 0.10 - 0.01, 
 });
 function App() {
   const [emojiPositions, setEmojiPositions] = useState(
@@ -30,11 +30,9 @@ function App() {
         prevPositions.map(pos => {
           let { top, left, x, y } = pos;
 
-          // Update position
           top += y;
           left += x;
 
-          // Collision detection
           if (top <= 0 || top >= 90) y = -y; // Reverse direction if hitting top or bottom
           if (left <= 0 || left >= 90) x = -x; // Reverse direction if hitting left or right
 
