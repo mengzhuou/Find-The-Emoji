@@ -23,3 +23,14 @@
   padding: 20px;
   border-radius: 10px;
 }
+
+.emoji-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.emoji {
+  position: absolute;
+  font-size: 2rem;
+}
