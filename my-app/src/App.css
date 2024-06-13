@@ -33,4 +33,14 @@
 .emoji {
   position: absolute;
   font-size: 2rem;
+  animation: move 5s linear infinite;
+}
+
+@keyframes move {
+  from {
+    transform: translate(0,0);
+  }
+  to {
+    transform: translate(var(--move-x), var(--move-y));
+  }
 }

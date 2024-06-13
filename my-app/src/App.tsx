@@ -9,6 +9,11 @@ const getRandomPos = () => ({
   left: `${Math.random() * 90}%`
 });
 
+const getRandomDirection = () => ({
+  '--move-x': `${Math.random() * 200 - 100}px`,
+  '--move-y': `${Math.random() * 200 - 100}px`,
+});
+
 
 function App() {
   return (
@@ -21,7 +26,7 @@ function App() {
                 <span 
                   key={index}
                   className='emoji'
-                  style={getRandomPos()}
+                  style={{ ...getRandomPos(), ...getRandomDirection() }}
                 >
 
                   {emoji}
