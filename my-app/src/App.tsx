@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import background from './background/b1.jpeg'
 
@@ -13,6 +13,7 @@ const getRandomDirection = () => ({
   x: Math.random() * 0.10 - 0.01, 
   y: Math.random() * 0.10 - 0.01, 
 });
+
 function App() {
   const [emojiPositions, setEmojiPositions] = useState(
     emojis.flatMap((emoji, emojiIndex) => 
@@ -24,26 +25,53 @@ function App() {
     )
   );
 
+  // generate random target emoji index
+  const [fixedEmojiIndex] = useState(() => Math.floor(Math.random() * emojiPositions.length));
+
+  const requestRef = useRef<number>();
+
+  const updatePositions = () => {
+    setEmojiPositions((prevPositions) =>
+      prevPositions.map((pos, index) => {
+        // Skip updating the fixed emoji
+        if (index === fixedEmojiIndex) {
+          return pos; 
+        }
+
+        // for each emoji set up their location
+        let { top, left, x, y } = pos;
+
+        // example of what the "pos" object contain
+        // left:84.12427425601041
+        // top:1.5469949535781993
+        // x:-0.04914749718891968
+        // y:-0.039255366406301485
+
+
+        top += y;
+        left += x;
+
+        // Reverse direction if hitting top or bottom
+        if (top <= 0 || top >= 90) y = -y; 
+        if (left <= 0 || left >= 90) x = -x;
+
+        return { ...pos, top, left, x, y };
+      })
+    );
+    requestRef.current = requestAnimationFrame(updatePositions);
+  };
+
   useEffect(() => {
-    const updatePositions = () => {
-      setEmojiPositions(prevPositions =>
-        prevPositions.map(pos => {
-          let { top, left, x, y } = pos;
-
-          top += y;
-          left += x;
-
-          if (top <= 0 || top >= 90) y = -y; // Reverse direction if hitting top or bottom
-          if (left <= 0 || left >= 90) x = -x; // Reverse direction if hitting left or right
-
-          return { ...pos, top, left, x, y };
-        })
-      );
-      requestAnimationFrame(updatePositions);
-    };
-
-    requestAnimationFrame(updatePositions);
+    requestRef.current = requestAnimationFrame(updatePositions);
+    // Clean up on unmount
+    return () => cancelAnimationFrame(requestRef.current!); 
   }, []);
+
+  const handleEmojiClick = (index: number) => {
+    if (index === fixedEmojiIndex) {
+      alert('Congrats! You have a good sight!');
+    }
+  };
 
   return (
     <div className="App">
@@ -54,6 +82,7 @@ function App() {
             key={index}
             className="emoji"
             style={{ top: `${pos.top}%`, left: `${pos.left}%` }}
+            onClick={() => handleEmojiClick(index)}
           >
             {pos.emoji}
           </span>
