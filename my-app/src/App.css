@@ -37,10 +37,19 @@
 }
 
 @keyframes move {
-  from {
+  0% {
     transform: translate(0,0);
   }
-  to {
+  100% {
     transform: translate(var(--move-x), var(--move-y));
+  }
+}
+
+@keyframes slow {
+  0% {
+    transform: translate(0,0);
+  }
+  100% {
+    transform: translate(calc(var(--move-x) / 2), calc(var(--move-y) / 2));
   }
 }
