@@ -36,6 +36,14 @@
   animation: move 5s linear infinite;
 }
 
+.target {
+  cursor: pointer;
+}
+
+/* .target:hover {
+  font-size: 5rem;
+} */
+
 @keyframes move {
   0% {
     transform: translate(0,0);

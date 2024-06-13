@@ -80,7 +80,7 @@ function App() {
         {emojiPositions.map((pos, index) => (
           <span
             key={index}
-            className="emoji"
+            className={`emoji ${index === fixedEmojiIndex ? 'target' : ''}`}
             style={{ top: `${pos.top}%`, left: `${pos.left}%` }}
             onClick={() => handleEmojiClick(index)}
           >
