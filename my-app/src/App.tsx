@@ -5,16 +5,19 @@ import background from './background/b1.jpeg'
 const emojis = ['😀', '😃', '😄', '😁', '😆', '😅', '🤣', '😂', '🙂', '🙃'];
 
 
+
 function App() {
   return (
     <div className="App">
       <img className="background_img" src={background} alt="Background" />
-      <header className="App-header">
-        <p>
-          Emoji App
-          {String.fromCodePoint(0x1F600)}
-        </p>
-      </header>
+      <div>
+          {emojis.map((emoji, index) => (
+            
+            <span key={index}>
+              {emoji}
+            </span>
+          ))}
+      </div> 
     </div>
   );
 }
