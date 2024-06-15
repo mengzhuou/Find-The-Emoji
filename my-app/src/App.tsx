@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
-import background from './background/b1.jpeg';
+import b1 from './background/b1.png';
+import b2 from './background/b2.png';
+import b3 from './background/b3.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -21,7 +23,11 @@ const emojisArray =
     ['0️⃣', '1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣'],
     ['🈷️', '🈚️', '🈸', '🈲', '🉐', '㊙️', '㊗️', '🈴', '🈵', '🈹'],
     ['❤️', '🩷', '🧡', '❤️‍🔥', '💔', '💕', '💞', '💓', '💖', '💝'],
-  ]
+  ];
+
+const imageArray = [b1, b2, b3];
+const randomImageNum = Math.floor(Math.random() * imageArray.length);
+const chosenImage = imageArray[randomImageNum];
 
 
 const arrNum = Math.floor(Math.random() * emojisArray.length);
@@ -103,7 +109,8 @@ function App() {
   return (
     <div className="App">
 
-      <img className="background_img" src={background} alt="Background" />
+      {/* <img className="background_img" src={background} alt="Background" /> */}
+      <img className="background_img" src={chosenImage} alt="Background" />
       <div className="emoji-container">
         {!isInfoClicked && (
           <FontAwesomeIcon
@@ -133,6 +140,7 @@ function App() {
           Find the only emoji that doesn't move.<br />
           <span className='info-madeByName'>
             Made by <a className="info-myyName" href="https://mengzhuou.github.io/" target="_blank">Mengzhu Ou</a>.
+            Pictures mainly came from <a className="info-myyName" href="http://www.xinhuanet.com/politics/2017-03/28/c_129520048.htm" target="_blank">XinHuaNet</a>.
           </span>
         </div>
       )}
