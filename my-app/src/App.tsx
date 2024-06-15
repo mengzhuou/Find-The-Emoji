@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
-import background from './background/b1.jpeg'
+import background from './background/b1.jpeg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 const emojis = ['😀', '😃', '😄', '😁', '😆', '😅', '🤣', '😂', '🙂', '🙃'];
 
@@ -70,6 +73,7 @@ function App() {
   const handleEmojiClick = (index: number) => {
     if (index === fixedEmojiIndex) {
       alert('Congrats! You have a good sight!');
+      window.location.reload();
     }
   };
 
@@ -77,6 +81,7 @@ function App() {
     <div className="App">
       <img className="background_img" src={background} alt="Background" />
       <div className="emoji-container">
+        <FontAwesomeIcon icon={faInfoCircle} className='infoIcon' />
         {emojiPositions.map((pos, index) => (
           <span
             key={index}

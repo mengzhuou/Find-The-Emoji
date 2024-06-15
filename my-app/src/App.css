@@ -7,6 +7,15 @@
   align-items: center;
 }
 
+.infoIcon{
+  z-index: 99;
+  font-size: 25px;
+  margin: 10px 10px;
+  color:rgb(0, 0, 0);
+  border-radius: 50%;
+  box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 1);
+}
+
 .background_img {
   position: absolute;
   width: 100%;
