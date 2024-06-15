@@ -6,6 +6,8 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 const emojis = ['😀', '😃', '😄', '😁', '😆', '😅', '🤣', '😂', '🙂', '🙃'];
+// const emojis = ['😀', '😃', '😄', '😁', '😆', '😅', '🤣', '😂', '🙂', '🙃'];
+// const emojis = ['😀', '😃', '😄', '😁', '😆', '😅', '🤣', '😂', '🙂', '🙃'];
 
 const getRandomPos = () => ({
   top: Math.random() * 90,
@@ -83,12 +85,14 @@ function App() {
     <div className="App">
       <img className="background_img" src={background} alt="Background" />
       <div className="emoji-container">
-        <FontAwesomeIcon 
-          icon={faInfoCircle} 
-          className='infoIcon' 
-          onMouseEnter={() => setIsInfoClicked(true)}
-          onMouseLeave={() => setIsInfoClicked(false)}
-        />
+        {!isInfoClicked && (
+          <FontAwesomeIcon 
+            icon={faInfoCircle} 
+            className='infoIcon' 
+            onMouseEnter={() => setIsInfoClicked(true)}
+            onMouseLeave={() => setIsInfoClicked(false)}
+          />
+        )}
         {emojiPositions.map((pos, index) => (
           <span
             key={index}
