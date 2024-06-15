@@ -108,7 +108,7 @@ function App() {
         >
           Find the only emoji that doesn't move.<br/> 
           <span className='info-madeByName'>
-            Made by <a className="info-myyName" href="https://mengzhuou.github.io/">Mengzhu Ou</a>.
+            Made by <a className="info-myyName" href="https://mengzhuou.github.io/" target="_blank">Mengzhu Ou</a>.
           </span>
         </div>
       )}
