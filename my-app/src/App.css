@@ -8,7 +8,7 @@
 }
 
 .infoIcon{
-  z-index: 2000;
+  z-index: 9;
   text-decoration: none;
   font-weight: bold;
   font-size: 25px;
@@ -33,7 +33,7 @@
   background-color: rgba(0, 0, 0, 0.75);
   color: white;
   border-radius: 5px;
-  z-index: 2;
+  z-index: 999;
 }
 
 .info-madeByName{
