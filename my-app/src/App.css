@@ -72,17 +72,16 @@
 .emoji {
   position: absolute;
   font-size: 2rem;
-  animation: move 5s linear infinite;
 }
 
 .target {
   cursor: pointer;
-  transition: font-size 0.5s ease-in-out; 
-  transform-origin: center;
+  transition: transform 0.5s ease-in-out; 
 }
 
 .target:hover {
-  font-size: 5rem;
+  z-index: 20;
+  transform: scale(3);
 }
 
 @keyframes move {
