@@ -15,8 +15,8 @@ const getRandomPos = () => ({
 });
 
 const getRandomDirection = () => ({
-  x: Math.random() * 0.10 - 0.01, 
-  y: Math.random() * 0.10 - 0.01, 
+  x: Math.random() * 0.10 - 0.05, 
+  y: Math.random() * 0.10 - 0.05, 
 });
 
 function App() {
