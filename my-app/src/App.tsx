@@ -77,11 +77,18 @@ function App() {
     }
   };
 
+  const [isInfoClicked, setIsInfoClicked] = useState(false);
+
   return (
     <div className="App">
       <img className="background_img" src={background} alt="Background" />
       <div className="emoji-container">
-        <FontAwesomeIcon icon={faInfoCircle} className='infoIcon' />
+        <FontAwesomeIcon 
+          icon={faInfoCircle} 
+          className='infoIcon' 
+          onMouseEnter={() => setIsInfoClicked(true)}
+          onMouseLeave={() => setIsInfoClicked(false)}
+        />
         {emojiPositions.map((pos, index) => (
           <span
             key={index}
@@ -93,6 +100,18 @@ function App() {
           </span>
         ))}
       </div>
+      {isInfoClicked && (
+        <div 
+          className='info-container'
+          onMouseEnter={() => setIsInfoClicked(true)}
+          onMouseLeave={() => setIsInfoClicked(false)}
+        >
+          Find the only emoji that doesn't move.<br/> 
+          <span className='info-madeByName'>
+            Made by <a className="info-myyName" href="https://mengzhuou.github.io/">Mengzhu Ou</a>.
+          </span>
+        </div>
+      )}
     </div>
   );
 }
