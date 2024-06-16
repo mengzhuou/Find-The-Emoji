@@ -51,6 +51,7 @@ function App() {
 
   useEffect(() => {
     const randomImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
+    console.log("randomImage", randomImage);
     setBackgroundImage(randomImage);
   }, []);
 
@@ -125,7 +126,7 @@ function App() {
           Find the only emoji that doesn't move.<br />
           <span className='info-madeByName'>
             Made by <a className="info-myyName" href="https://mengzhuou.github.io/" target="_blank" rel="noreferrer">Mengzhu Ou</a>.
-            Pictures mainly came from <a className="info-myyName" href="http://www.xinhuanet.com/politics/2017-03/28/c_129520048.htm" target="_blank" rel="noreferrer">XinHuaNet</a>.
+            Pictures mainly came from <a className="info-myyName" href="https://www.pexels.com/zh-CN/search/%E9%A3%8E%E6%99%AF/?orientation=landscape" target="_blank" rel="noreferrer">Pexels</a>.
           </span>
         </div>
       )}
