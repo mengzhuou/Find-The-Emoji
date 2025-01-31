@@ -1,5 +1,4 @@
 {
-  "homepage": "https://mengzhuou.github.io/Find-The-Emoji/",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -25,9 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "cd my-app && npm run build",
-    "deploy": "gh-pages -d my-app/build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
